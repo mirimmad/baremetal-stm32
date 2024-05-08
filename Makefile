@@ -16,6 +16,7 @@ CFLAGS += -Wall
 CFLAGS += -g
 CFLAGS += -fmessage-length=0
 CFLAGS += --specs=nosys.specs
+CFLAGS += -ICMSIS/
 
 LSCRIPT = ./$(LD_SCRIPT)
 LFLAGS += -mcpu=$(MCU_SPEC)
