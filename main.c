@@ -16,10 +16,12 @@ int main(void) {
   GPIOA->MODER |= 1 << 10;
 
   while (1) {
-    GPIOA->BSRR |= 1 << 5;
+    //GPIOA->BSRR |= 1 << 5;
+    GPIOA->ODR |= (1 << 5);
     delay();
 
-    GPIOA->BSRR |= 1 << 21;
+    //GPIOA->BSRR |= 1 << 21;
+    GPIOA->ODR &= ~(1 << 5);
     delay();
 
   }
