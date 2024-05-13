@@ -52,6 +52,7 @@ $(TARGET).bin: $(TARGET).elf
 clean:
 	rm -f $(OBJS)
 	rm -f $(TARGET).elf
+	rm -f $(TARGET).bin
 
 flash:
 	st-flash write $(TARGET).bin 0x08000000
