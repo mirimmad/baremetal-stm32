@@ -26,31 +26,22 @@ SECTIONS
     *(.text)
     *(.text*)
     . = ALIGN(4);
+    _etext = .;
   } >FLASH
-  /* The 'rodata' section contains read-only data,
-   * constants, strings, information that won't change. */
-  .rodata :
-  {
-    . = ALIGN(4);
-    *(.rodata)
-    *(.rodata*)
-    . = ALIGN(4);
-  } >FLASH
-  /* The 'data' section is space set aside in RAM for
-   * things like variables, which can change. */
-  _sidata = .;
-  .data : AT(_sidata)
+
+   .data :
   {
     . = ALIGN(4);
     /* Mark start/end locations for the 'data' section. */
     _sdata = .;
     *(.data)
     *(.data*)
-    _edata = .;
     . = ALIGN(4);
-  } >RAM
+    _edata = .;
   
-  .bss :
+  } >RAM AT > FLASH
+
+  bss :
   {
     . = ALIGN(4);
     /* Also mark the start/end of the BSS section. */
@@ -61,5 +52,16 @@ SECTIONS
     . = ALIGN(4);
     _ebss = .;
   } >RAM
+
+
+  /* The 'rodata' section contains read-only data,
+   * constants, strings, information that won't change. */
+  .rodata :
+  {
+    . = ALIGN(4);
+    *(.rodata)
+    *(.rodata*)
+    . = ALIGN(4);
+  } >FLASH
 
 }
