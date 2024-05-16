@@ -60,7 +60,7 @@ typedef enum
 
 
 void set_gpioa();
-void set_pin_mode(GPIO_TYPE *gpio, pin_t pin, mode_t mode);
-void write_pin(GPIO_TYPE *gpio, pin_t pin, state_t state);
+void set_pin_mode(pin_t pin, mode_t mode);
+void write_pin(pin_t pin, state_t state);
 
 #endif
