@@ -18,7 +18,7 @@ __attribute__((used, section(".vector_table"))) void (*const vectors[])(void) = 
     reset_handler,
 };
 
-//__attribute__((used, section(".reset_handler")))
+__attribute__((used, section(".reset_handler")))
 void reset_handler(void) {
     
     uint32_t * pSrc = &_etext;

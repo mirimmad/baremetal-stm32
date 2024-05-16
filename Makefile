@@ -17,6 +17,9 @@ CFLAGS += -g
 CFLAGS += -fmessage-length=0
 CFLAGS += --specs=nosys.specs
 CFLAGS += -ICMSIS/
+CFLAGS += -Idrivers/
+CFLAGS += -Idrivers/clk
+CFLAGS += -Idrivers/gpio
 
 LSCRIPT = ./$(LD_SCRIPT)
 LFLAGS += -mcpu=$(MCU_SPEC)
@@ -31,16 +34,14 @@ SRC = $(shell find ./ -type f -name '*.c')
 BUILDDIR = build
 OBJS = $(patsubst ./%.c, $(BUILDDIR)/%.o, $(SRC))
 
-#OBJS += startup.o
-#OBJS += main.o
-
 .PHONY: all
 all: $(TARGET).bin
 
 .PHONY: %.o
 $(BUILDDIR)/%.o : %.c
+	@mkdir -p $(@D)
 	$(CC) -c $(CFLAGS) $< -o $@
-
+.PHONY: %.o
 $(TARGET).elf: $(OBJS)
 	$(CC) $^ $(LFLAGS) -o $@
 

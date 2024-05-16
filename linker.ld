@@ -19,6 +19,15 @@ SECTIONS
     KEEP (*(.vector_table))
     . = ALIGN(4);
   } >FLASH
+
+  /* The reset should be the next thing in the flash. */
+  .reset_handler :
+  {
+    . = ALIGN(4);
+    KEEP (*(.reset_handler))
+    . = ALIGN(4);
+  } >FLASH
+
   /* The 'text' section contains the main program code. */
   .text :
   {
