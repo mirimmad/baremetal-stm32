@@ -33,11 +33,11 @@ int main(void) {
   clk_enable_porta();
 
   set_gpioa();
-  set_pin_mode(PA5, OP);
+  set_pin_mode(GPIOA, PA5, OP);
   toggle:
-  write_pin(PA5, HIGH);
+  write_pin(GPIOA, PA5, HIGH);
   delay();
-  write_pin(PA5, LOW);
+  write_pin(GPIOA, PA5, LOW);
   delay();
   goto toggle;
 

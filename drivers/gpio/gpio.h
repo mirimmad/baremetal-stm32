@@ -26,22 +26,22 @@ GPIO_TYPE *GPIOA;
 
 typedef enum
 {
-    PA0 = 0,
-    PA1,
-    PA2,
-    PA3,
-    PA4,
-    PA5,
-    PA6,
-    PA7,
-    PA8,
-    PA9,
-    PA10,
-    PA11,
-    PA12,
-    PA13,
-    PA14,
-    PA15,
+    P0 = 0,
+    P1,
+    P2,
+    P3,
+    P4,
+    P5,
+    P6,
+    P7,
+    P8,
+    P9,
+    P10,
+    P11,
+    P12,
+    P13,
+    P14,
+    P15,
 } pin_t;
 
 typedef enum
@@ -60,7 +60,7 @@ typedef enum
 
 
 void set_gpioa();
-void set_pin_mode(pin_t pin, mode_t mode);
-void write_pin(pin_t pin, state_t state);
+void set_pin_mode(GPIO_TYPE *gpio, pin_t pin, mode_t mode);
+void write_pin(GPIO_TYPE *gpio, pin_t pin, state_t state);
 
 #endif
