@@ -58,10 +58,16 @@ typedef struct
 }
 __attribute__((packed)) RCC_TYPE;
 
-RCC_TYPE *RCC;
+#define RCC ((RCC_TYPE *)RCC_BASE)
 
-void set_clk();
-void clk_enable_porta();
-void clk_disable_porta();
+typedef enum
+{
+    PORTA_CLOCK = 0b0,
+    PORTB_CLOCk,
+    PORTC_CLOCK,
+} PORT_CLOCK;
+
+void clk_enable_port(PORT_CLOCK port);
+void clk_disable_port(PORT_CLOCK port);
 
 #endif

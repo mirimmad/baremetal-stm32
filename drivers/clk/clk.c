@@ -1,16 +1,11 @@
 #include "clk.h"
 
-void set_clk()
+void clk_enable_port(PORT_CLOCK port)
 {
-    RCC = (RCC_TYPE *)RCC_BASE;
+    RCC->AHB1ENR |= (1 << port);
 }
 
-void clk_enable_porta()
+void clk_disable_port(PORT_CLOCK port)
 {
-    RCC->AHB1ENR |= (1 << 0);
-}
-
-void clk_disable_porta()
-{
-    RCC->AHB1ENR &= (0 << 0);
+    RCC->AHB1ENR &= (0 << port);
 }

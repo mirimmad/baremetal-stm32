@@ -22,7 +22,9 @@ typedef struct
     uint32_t ARRL;
 } __attribute__((packed)) GPIO_TYPE;
 
-GPIO_TYPE *GPIOA;
+#define GPIOA ((GPIO_TYPE *)GPIOA_BASE)
+#define GPIOB ((GPIO_TYPE *)GPIOB_BASE)
+#define GPIOC ((GPIO_TYPE *)GPIOC_BASE)
 
 typedef enum
 {
@@ -58,9 +60,8 @@ typedef enum
     AN = 0b11
 } mode_t;
 
-
-void set_gpioa();
 void set_pin_mode(GPIO_TYPE *gpio, pin_t pin, mode_t mode);
 void write_pin(GPIO_TYPE *gpio, pin_t pin, state_t state);
+uint8_t read_pin(GPIO_TYPE *gpio, pin_t pin);
 
 #endif
