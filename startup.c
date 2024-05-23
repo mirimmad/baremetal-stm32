@@ -14,7 +14,7 @@ extern int main(void);
 void reset_handler(void);
 
 void defaultHandler(void);
-void SysTickHandler(void);
+void SysTickHandler(void) __attribute__((weak));
 
 __attribute__((used, section(".vector_table"))) void (*const vectors[])(void) = {
     &_estack,
