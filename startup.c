@@ -26,10 +26,10 @@ __attribute__((used, section(".vector_table"))) void (*const vectors[])(void) = 
     defaultHandler, // MemManage
     defaultHandler, // Bus Fault
     defaultHandler, // Usage Fault
-    defaultHandler, // reserved
-    defaultHandler, // reserved
-    defaultHandler, // reserved
-    defaultHandler, // reserved
+    0,              // reserved
+    0,              // reserved
+    0,              // reserved
+    0,              // reserved
     defaultHandler, // SVCall
     defaultHandler, // debug monitor
     defaultHandler, // reserved
@@ -58,10 +58,10 @@ __attribute__((used, section(".vector_table"))) void (*const vectors[])(void) = 
     defaultHandler, // DMA1 Stream 6
     defaultHandler, // ADC1, ADC2 and ADC3s
 
-    defaultHandler, // reserved
-    defaultHandler, // reserved
-    defaultHandler, // reserved
-    defaultHandler, // reserved
+    0,              // reserved
+    0,              // reserved
+    0,              // reserved
+    0,              // reserved
 
     EXTI9_5_Handler, // EXT1 Lines[9:5]
     defaultHandler,
