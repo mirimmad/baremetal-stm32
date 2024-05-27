@@ -11,7 +11,7 @@ void write_pin(GPIO_TYPE *gpio, pin_t pin, state_t state)
     if (state == HIGH)
         gpio->ODR |= 1 << pin;
     else
-        gpio->ODR &= 0 << pin;
+        gpio->ODR &= ~(1 << pin);
 }
 
 uint8_t read_pin(GPIO_TYPE *gpio, pin_t pin)
