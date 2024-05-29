@@ -20,6 +20,8 @@ CFLAGS += -ICMSIS/
 CFLAGS += -Idrivers/
 CFLAGS += -Idrivers/clk
 CFLAGS += -Idrivers/gpio
+CFLAGS += -Idrivers/NVIC
+CFLAGS += -Idrivers/core
 
 LSCRIPT = ./$(LD_SCRIPT)
 LFLAGS += -mcpu=$(MCU_SPEC)
