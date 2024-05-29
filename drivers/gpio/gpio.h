@@ -58,9 +58,9 @@ typedef enum
     OP = 0b01,
     AF = 0b10,
     AN = 0b11
-} mode_t;
+} pin_mode_t;
 
-void set_pin_mode(GPIO_TYPE *gpio, pin_t pin, mode_t mode);
+void set_pin_mode(GPIO_TYPE *gpio, pin_t pin, pin_mode_t mode);
 void write_pin(GPIO_TYPE *gpio, pin_t pin, state_t state);
 uint8_t read_pin(GPIO_TYPE *gpio, pin_t pin);
 

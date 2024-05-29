@@ -1,7 +1,7 @@
 #include "gpio.h"
 
 
-void set_pin_mode(GPIO_TYPE *gpio, pin_t pin, mode_t mode)
+void set_pin_mode(GPIO_TYPE *gpio, pin_t pin, pin_mode_t mode)
 {
     gpio->MODER |= mode << (pin * 2);
 }
