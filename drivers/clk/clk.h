@@ -3,6 +3,13 @@
 
 #include "mmap.h"
 
+uint32_t SystemClock;
+
+#define PLL_M 8
+#define PLL_N 336
+#define PLL_P 0b01 // 4
+#define PLL_Q 4
+
 typedef struct
 {
     // control register
@@ -69,5 +76,6 @@ typedef enum
 
 void clk_enable_port(PORT_CLOCK port);
 void clk_disable_port(PORT_CLOCK port);
+void config_clk84();
 
 #endif
