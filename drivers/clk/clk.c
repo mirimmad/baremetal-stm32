@@ -9,7 +9,7 @@ void config_PLL()
     // wait for it to be zero
     while ((RCC->CR & (1 << 25)) == 1);
     // PLL config
-    // Vo = Vin * (N * M) / P
+    // Vo = Vin * (N / M) / P
     // Vin = 8 Mhz (HSE)
     // N = 336, M = 8, P = 4
     // Load the config
