@@ -60,7 +60,25 @@ typedef enum
     AN = 0b11
 } pin_mode_t;
 
+typedef enum
+{
+    LOW_SPEED = 0b00,
+    MEDIUM_SPEED = 0b01,
+    HIGH_SPEED = 0b10,
+    VERY_HIGH_SPEED = 0b11,
+} pin_speed_t;
+
+typedef enum
+{
+    NO_PP = 0b00,
+    PU = 0b01,
+    PD = 0b10,
+    res = 0b11,
+} pin_push_pull_t;
+
 void set_pin_mode(GPIO_TYPE *gpio, pin_t pin, pin_mode_t mode);
+void set_pin_speed(GPIO_TYPE *gpio, pin_t pin, pin_speed_t speed);
+void set_pin_push_pull(GPIO_TYPE *gpio, pin_t pin, pin_push_pull_t pp);
 void write_pin(GPIO_TYPE *gpio, pin_t pin, state_t state);
 uint8_t read_pin(GPIO_TYPE *gpio, pin_t pin);
 
