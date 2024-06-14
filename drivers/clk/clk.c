@@ -16,13 +16,13 @@ void config_PLL()
     // set HSE as PLL source
     RCC->PLLCFGR |= (1 << 22);
     // set value of M divisor
-    RCC->PLLCFGR |= (8 << 0);
+    RCC->PLLCFGR |= (PLL_M << 0);
     // set value of N multiplier
-    RCC->PLLCFGR |= (336 << 6);
+    RCC->PLLCFGR |= (PLL_N << 6);
     // set value P divisor
-    RCC->PLLCFGR |= (0b01 << 16);
+    RCC->PLLCFGR |= (PLL_P << 16);
     // set value of Q
-    RCC->PLLCFGR |= (4 << 24);
+    RCC->PLLCFGR |= (PLL_Q << 24);
 
     // turn PLL on
     RCC->CR |= (1 << 24);
@@ -39,7 +39,8 @@ void config_clk84()
     SystemClock = 16000000;
 
     // using PLL with HSE as source
-
+    // byepass HSE from ST-Link 8Mhz crystal
+    RCC->CR |= (1 << 18);
     // turn HSE on
     RCC->CR |= (1 << 16);
     // wait fot it
