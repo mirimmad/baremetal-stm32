@@ -32,7 +32,7 @@ LFLAGS += -nostdlib
 LFLAGS += -lgcc
 LFLAGS += -T$(LSCRIPT)
 
-SRC = $(shell find ./ -type f -name '*.c')
+SRC = $(shell find ./ -type f -name '*.c' ! -path "./demos/*")
 BUILDDIR = build
 OBJS = $(patsubst ./%.c, $(BUILDDIR)/%.o, $(SRC))
 
